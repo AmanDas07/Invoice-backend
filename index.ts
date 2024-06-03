@@ -11,24 +11,19 @@ const app = express();
 dotenv.config();
 
 const corsOptions = {
-    origin: '*',
+    origin: 'https://invoice-frontend-kappa.vercel.app',
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type, Authorization"
 };
 app.use(express.json());
-app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 
 
 const routesDirectory: string = 'src/routes';
 app.use("/api/auth", authroutes);
 app.use("/api/products", productroutes);
-/*fs.readdirSync(routesDirectory).map((fileName: string) => {
-    const routePath: string = path.join(routesDirectory, fileName);
-    import(routePath)
-        .then((module) => app.use('/api', module.default || module))
-        .catch((error) => console.error(`Error loading ${routePath}: ${error}`));
-});*/
+
 
 const connectToDatabase = async (): Promise<void> => {
     try {
