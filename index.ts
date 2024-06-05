@@ -11,12 +11,12 @@ const app = express();
 dotenv.config();
 
 const corsOptions = {
-    origin: 'https://invoice-frontend-kappa.vercel.app',
+    origin: 'https://invoice-frontend-1kcasd0sz-amandas07s-projects.vercel.app',
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type, Authorization"
 };
 app.use(express.json());
-app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 
 
 
