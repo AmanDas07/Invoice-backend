@@ -12,11 +12,12 @@ dotenv.config();
 
 const corsOptions = {
     origin: 'https://invoice-frontend-1kcasd0sz-amandas07s-projects.vercel.app',
+            'https://invoice-frontend-cd1khnuhb-amandas07s-projects.vercel.app'
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type, Authorization"
 };
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use('*',cors(corsOptions));
 
 
 
